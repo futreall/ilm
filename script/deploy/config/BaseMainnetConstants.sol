@@ -24,6 +24,9 @@ abstract contract BaseMainnetConstants {
     address public constant AERODROME_FACTORY =
         0x420DD381b31aEf6683db6B902084cB0FFECe40Da;
 
+    address public constant UNIVERSAL_ROUTER =
+        0x6Cb442acF35158D5eDa88fe602221b67B400Be3E;
+
     // USDbC has 6 decimals
     uint256 public constant ONE_USDbC = 1e6;
 
@@ -50,6 +53,8 @@ abstract contract BaseMainnetConstants {
     address public constant AERODROME_ADAPTER =
         0x6Cfc78c96f87e522EBfDF86995609414cFB1DcB2;
 
+    address public constant BASE_MAINNET_SEAMLESS_WRAPPED_WSTETH =
+        0xc9ae3B5673341859D3aC55941D27C8Be4698C9e4;
     address public constant BASE_MAINNET_SEAMLESS_WRAPPED_WETH =
         0x3e8707557D4aD25d6042f590bCF8A06071Da2c5F;
 }
