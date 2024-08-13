@@ -38,3 +38,12 @@ deploy-loopStrategyETHoverUSDC-tenderly 					:; forge script script/deploy/base-
 
 deploy-ilmregistry-base-mainnet										:; forge script script/deploy/base-mainnet/DeployILMRegistry.s.sol --tc DeployILMRegistry --force --rpc-url base --chain base --slow --broadcast --verify --delay 5 -vvvv
 deploy-ilmregistry-fork		        								:; forge script script/deploy/base-mainnet/DeployILMRegistry.s.sol --tc DeployILMRegistry --force --rpc-url tenderly --slow --broadcast -vvvv --verify --verifier-url ${TENDERLY_FORK_VERIFIER_URL} --etherscan-api-key ${TENDERLY_ACCESS_KEY}
+
+deploy-loopStrategyETHoverUSDC-3x-base-mainnet 			:; forge script script/deploy/base-mainnet/DeployLoopStrategyETHoverUSDC_3x.s.sol --tc DeployLoopStrategyETHoverUSDC_3x --force --rpc-url base --chain base --slow --broadcast --verify --delay 5 -vvvv
+deploy-loopStrategyETHoverUSDC-3x-tenderly 					:; forge script script/deploy/base-mainnet/DeployLoopStrategyETHoverUSDC_3x.s.sol --tc DeployLoopStrategyETHoverUSDC_3x --force --rpc-url tenderly --slow --broadcast -vvvv --verify --verifier-url ${TENDERLY_FORK_VERIFIER_URL} --etherscan-api-key ${TENDERLY_ACCESS_KEY}
+
+deploy-wrappedTokenAdapter-base-mainnet :; 	 forge script script/deploy/base-mainnet/DeployWrappedTokenAdapter.s.sol --tc DeployWrappedTokenAdapter --force --rpc-url base --chain base --slow --broadcast --verify --delay 5 -vvvv
+deploy-wrappedTokenAdapter-tenderly 		:;   forge script script/deploy/base-mainnet/DeployWrappedTokenAdapter.s.sol --tc DeployWrappedTokenAdapter --force --rpc-url tenderly --slow --broadcast -vvvv --verify --verifier-url ${TENDERLY_FORK_VERIFIER_URL} --etherscan-api-key ${TENDERLY_ACCESS_KEY}
+
+deploy-universalAerodromeAdapter-base-mainnet 	:; forge script script/deploy/base-mainnet/DeployUniversalAerodromeAdapter.s.sol --tc DeployUniversalAerodromeAdapter --force --rpc-url base --chain base --slow --broadcast --verify --delay 5 -vvvv
+deploy-universalAerodromeAdapter-tenderly 			:; forge script script/deploy/base-mainnet/DeployUniversalAerodromeAdapter.s.sol --tc DeployUniversalAerodromeAdapter --force --rpc-url tenderly --slow --broadcast -vvvv --verify --verifier-url ${TENDERLY_FORK_VERIFIER_URL} --etherscan-api-key ${TENDERLY_ACCESS_KEY}
