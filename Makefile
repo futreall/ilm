@@ -47,3 +47,7 @@ deploy-wrappedTokenAdapter-tenderly 		:;   forge script script/deploy/base-mainn
 
 deploy-universalAerodromeAdapter-base-mainnet 	:; forge script script/deploy/base-mainnet/DeployUniversalAerodromeAdapter.s.sol --tc DeployUniversalAerodromeAdapter --force --rpc-url base --chain base --slow --broadcast --verify --delay 5 -vvvv
 deploy-universalAerodromeAdapter-tenderly 			:; forge script script/deploy/base-mainnet/DeployUniversalAerodromeAdapter.s.sol --tc DeployUniversalAerodromeAdapter --force --rpc-url tenderly --slow --broadcast -vvvv --verify --verifier-url ${TENDERLY_FORK_VERIFIER_URL} --etherscan-api-key ${TENDERLY_ACCESS_KEY}
+
+deploy-wrappedUSDC-base-mainnet										:; forge script script/deploy/base-mainnet/DeployWrappedUSDC.s.sol --tc DeployWrappedUSDC --force --rpc-url base --chain base --slow --broadcast --verify --delay 5 -vvvv
+deploy-wrappedUSDC-tenderly												:; forge script script/deploy/base-mainnet/DeployWrappedUSDC.s.sol --tc DeployWrappedUSDC --force --rpc-url tenderly --slow --broadcast -vvvv --verify --verifier-url ${TENDERLY_FORK_VERIFIER_URL} --etherscan-api-key ${TENDERLY_ACCESS_KEY}
+
