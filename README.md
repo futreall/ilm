@@ -31,6 +31,7 @@ The ILMs integrate directly with the [Seamless Protocol](https://docs.seamlesspr
 | wstETH/ETH 3x Loop Strategy  | `0x258730e23cF2f25887Cb962d32Bd10b878ea8a4e` | `0xceFEB99ADdeb0F408237379Eb355CF96bA6fD328` |
 | WETH/USDC 1.5x Loop Strategy | `0x2FB1bEa0a63F77eFa77619B903B2830b52eE78f4` | `0xceFEB99ADdeb0F408237379Eb355CF96bA6fD328` |
 | WETH/USDC 3x Loop Strategy   | `0x5Ed6167232b937B0A5C84b49031139F405C09c8A` | `0x588313d69F6cA189029D83A3012fd3C40be4Eac5` |
+| USDC/WETH 1.5x Loop Strategy | `0x68DFad1A72c63897FEC5fB9De9FDb5670280291e` | `0x9c764C663f8b377BACc3BCe7F1F480a9417cDb67` |
 | Seamless ILM Reserved wstETH |                                              | `0xc9ae3B5673341859D3aC55941D27C8Be4698C9e4` |
 | Seamless ILM Reserved WETH   |                                              | `0x3e8707557D4aD25d6042f590bCF8A06071Da2c5F` |
 | Seamless ILM Reserved USDC   |                                              | `0x9660Af3B1955648A72F5C958E80449032d645755` |

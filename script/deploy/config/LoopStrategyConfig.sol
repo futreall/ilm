@@ -3,7 +3,9 @@
 pragma solidity 0.8.21;
 
 import { BaseMainnetConstants } from "./BaseMainnetConstants.sol";
-import { CollateralRatio } from "../../../src/types/DataTypes.sol";
+import {
+    CollateralRatio, StrategyAssets
+} from "../../../src/types/DataTypes.sol";
 
 /// @dev configuration for the ERC20 token
 struct ERC20Config {
@@ -48,4 +50,12 @@ struct LoopStrategyConfig {
     CollateralRatioConfig collateralRatioConfig;
     SwapperConfig swapperConfig;
     address debtAsset;
+}
+
+/// @dev core configuration  for the LoopStrategy contract
+/// @dev in refactoring this should be inside of the LoopStrategyConfig struct
+struct LoopStrategyConfigCore {
+    StrategyAssets strategyAssets;
+    ERC20Config strategyERC20Config;
+    CollateralRatioConfig collateralRatioConfig;
 }

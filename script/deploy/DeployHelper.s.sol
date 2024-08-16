@@ -8,7 +8,8 @@ import {
     LoopStrategyConfig,
     ERC20Config,
     ReserveConfig,
-    CollateralRatioConfig
+    CollateralRatioConfig,
+    LoopStrategyConfigCore
 } from "./config/LoopStrategyConfig.sol";
 import { IERC20 } from "@openzeppelin/contracts/interfaces/IERC20.sol";
 import { ERC1967Proxy } from
@@ -287,10 +288,11 @@ contract DeployHelper is BaseMainnetConstants {
         );
     }
 
-    /// @dev deploys LoopStrategy contract
+    /// @dev deploys LoopStrategy contract with a ERC1967Proxy
+    /// @dev this function is kept for backwards compatibility, _deployLoopStrategyCore should be used
     /// @dev requires for the caller to be the same address as `initialAdmin`
     /// @param wrappedToken address of the WrappedToken contract
-    /// @param initialAdmin initial DEFAULT_ADMIN, MANAGER_ROLE, UPGRADER_ROLE and PAUSER_ROLE roles on the contract
+    /// @param initialAdmin initial DEFAULT_ADMIN and MANAGER_ROLE roles on the contract
     /// @param swapper address of the Swapper contract
     /// @param config configuration paramteres for the LoopStrategy contract
     /// @return strategy address of the deployed LoopStrategy contract
@@ -307,6 +309,7 @@ contract DeployHelper is BaseMainnetConstants {
         });
 
         LoopStrategy strategyImplementation = new LoopStrategy();
+        _logAddress("Strategy Implementation", address(strategyImplementation));
 
         ERC1967Proxy strategyProxy = new ERC1967Proxy(
             address(strategyImplementation),
@@ -328,7 +331,42 @@ contract DeployHelper is BaseMainnetConstants {
 
         strategy.grantRole(strategy.MANAGER_ROLE(), initialAdmin);
 
-        _logAddress("Strategy", address(strategy));
+        _logAddress("Strategy Proxy", address(strategy));
+    }
+
+    /// @dev deploys LoopStrategy contract with a ERC1967Proxy
+    /// @dev requires for the caller to be the same address as `initialAdmin`
+    /// @param initialAdmin initial DEFAULT_ADMIN role on the contract
+    /// @param swapper address of the Swapper contract
+    /// @param config configuration paramteres for the LoopStrategy contract
+    /// @return strategy address of the deployed LoopStrategy contract
+    function _deployLoopStrategyCore(
+        address initialAdmin,
+        ISwapper swapper,
+        LoopStrategyConfigCore memory config
+    ) internal returns (LoopStrategy strategy) {
+        LoopStrategy strategyImplementation = new LoopStrategy();
+        _logAddress("Strategy Implementation", address(strategyImplementation));
+
+        ERC1967Proxy strategyProxy = new ERC1967Proxy(
+            address(strategyImplementation),
+            abi.encodeWithSelector(
+                LoopStrategy.LoopStrategy_init.selector,
+                config.strategyERC20Config.name,
+                config.strategyERC20Config.symbol,
+                initialAdmin,
+                config.strategyAssets,
+                config.collateralRatioConfig.collateralRatioTargets,
+                poolAddressesProvider,
+                IPriceOracleGetter(poolAddressesProvider.getPriceOracle()),
+                swapper,
+                config.collateralRatioConfig.ratioMargin,
+                config.collateralRatioConfig.maxIterations
+            )
+        );
+        strategy = LoopStrategy(address(strategyProxy));
+
+        _logAddress("Strategy Proxy", address(strategy));
     }
 
     /// @dev deploys a new LoopStrategy contract implementation

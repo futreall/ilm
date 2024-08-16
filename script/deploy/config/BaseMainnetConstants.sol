@@ -49,17 +49,21 @@ abstract contract BaseMainnetConstants {
 
     address public constant SWAPPER = 0xE314ae9D279919a00d4773cCe37946A98fADDaBc;
     address public constant WRAPPED_TOKEN_ADAPTER =
-        0xc3e17CDac7C6ED317f0D9845d47df1a281B5f79E;
+        0x1508F1B71210593406f8b614dcc41cdF3e6d2a6d;
     address public constant AERODROME_ADAPTER =
         0x6Cfc78c96f87e522EBfDF86995609414cFB1DcB2;
+    address public constant UNIVERSAL_AERODROME_ADAPTER =
+        0x87f8D14A8796b22116d267CFE9A57e986F207468;
 
     address public constant WSTETH_USD_ORACLE =
         0xD815218fA8c9bd605c2b048f26cd374A752cAA76;
     address public constant WETH_USD_ORACLE =
         0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70;
 
-    address public constant BASE_MAINNET_SEAMLESS_WRAPPED_WETH =
-        0x3e8707557D4aD25d6042f590bCF8A06071Da2c5F;
     address public constant BASE_MAINNET_SEAMLESS_WRAPPED_WSTETH =
         0xc9ae3B5673341859D3aC55941D27C8Be4698C9e4;
+    address public constant BASE_MAINNET_SEAMLESS_WRAPPED_WETH =
+        0x3e8707557D4aD25d6042f590bCF8A06071Da2c5F;
+    address public constant BASE_MAINNET_SEAMLESS_WRAPPED_USDC =
+        0x9660Af3B1955648A72F5C958E80449032d645755;
 }
