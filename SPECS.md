@@ -15,7 +15,7 @@ In a nutshell, the "loop" goes as follows:
 - User collateral is pooled and deposited into the lending pool as a single position
 - Debt assets are borrowed from the pool against the supplied collateral
 - Debt assets are exchanged on an external DEX for the collateral asset
-- The additiona collateral asset is supplied back to the lending pool
+- The additional collateral asset is supplied back to the lending pool
 - Strategy is enabled to borrow more debt assets
 
 To manage the loans, the `LoopingStrategy` contracts leverage the OpenZeppelin Defender platform in order to supply more, or repay part of the loans, in order to keep the position within an acceptable risk margin. Specifically the LoopStrategy contract automatically rebalances on significant deposits, withdrawals, and changes in the price of collateral or debt assets.
@@ -80,7 +80,7 @@ Important note: if there is insufficient borrowing liquidity for the rebalance o
 
 1. If the current collateral ratio is outside the defined margin, the pool rebalances.
 2. Users redeem `W` shares.
-3. Users also specify `minAmountOut` of the underlying asset they expect. This is to safeguard against DEX price changes between transaction submission and execution which may resul in a less than expected withdrawal.
+3. Users also specify `minAmountOut` of the underlying asset they expect. This is to safeguard against DEX price changes between transaction submission and execution which may result in a less than expected withdrawal.
 4. The current collateral ratio is saved as `prevCR`.
 5. The DOLLAR value of shares (`vUA`) is converted to the amount of the underlying asset (`UA`).
 6. If, after the withdrawal of `UA` from the lending pool, the collateral ratio is above `minForWithdrawRebalance` margin, collateral assets are withdrawn directly to the user address without DEX swaps and rebalances.
@@ -115,7 +115,7 @@ The RebalanceLogic library contains all the logic for all the rebalancing operat
 
 - When the collateral ratio is below the `minForRebalance`:
 
-  1. Caculate amount of collateral asset needs to be withdrawn from the pool to reach the target collateral ratio.
+  1. Calculate amount of collateral asset needs to be withdrawn from the pool to reach the target collateral ratio.
   2. Withdraw collateral assets and swap them for debt assets via the DEX.
   3. Repay debt with the debt asset.
   4. Repeat the process until the collateral ratio is above the minimum collateral ratio.
